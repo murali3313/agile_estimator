@@ -111,7 +111,6 @@ export default {
               }
             })
           }
-          debugger
           return bySize
         },
         updateFinalEstimate: function (estimate) {
@@ -127,7 +126,6 @@ export default {
             .set(this.finalEstimate)
         },
         finalizeEstimate: function () {
-          debugger
           firebase.database().ref('estimators/' + this.estimatorSessionId + '/FinalizeEstimation')
             .set({'storyId': this.storyId, value: false})
           firebase.database().ref('estimators/' + this.estimatorSessionId + '/stories/' + this.storyId + '/final_estimate')

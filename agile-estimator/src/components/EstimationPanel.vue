@@ -118,11 +118,9 @@ export default {
   },
   created: function () {
     this.estimatorSessionId = this.$route.params.id
-    debugger
     let that = this
     firebase.database().ref('estimators/' + this.estimatorSessionId + '/facilitatorId').on('value', function (facilitatorRef) {
       let facilitatorId = facilitatorRef.val()
-      debugger
       that.isFacilitator = that.isFacilitatorFlag(facilitatorId)
     })
     firebase.database().ref('estimators/' + this.estimatorSessionId).once('value')

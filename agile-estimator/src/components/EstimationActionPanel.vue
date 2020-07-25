@@ -69,7 +69,6 @@ export default {
           .ref('estimators/' + this.estimatorSessionId + '/stories/' + this.storyId + '/user_estimates/' + SessionStorageUtil.getUserName())
           .set(estimation)
       } else {
-        debugger
         this.$emit('applyFilter', estimation)
       }
     }

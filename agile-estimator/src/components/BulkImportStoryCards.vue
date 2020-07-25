@@ -87,7 +87,6 @@ export default {
       let storiesContext = new StoriesContext(this.storyContent, this.useCommaSeparationForColumn)
 
       let storiesContent = storiesContext.getStories()
-      debugger
       let that = this
       if (this.purgeExistingStories) {
         firebase.database().ref('estimators/' + this.sessionDetails.sessionUUID + '/stories')
