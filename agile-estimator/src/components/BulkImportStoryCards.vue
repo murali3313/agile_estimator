@@ -25,8 +25,9 @@
           </div>
           <div class="row estimate_action">
             <div class="col-md-12">
-              <input type="submit" value="Create story dash board" class="btn btn-primary"
-                     @click="createStoryDashBoard()"/>
+              <md-button class="md-toolbar-section-center md-alignment-top-center md-elevation-1 btn-accent" @click="createStoryDashBoard()">
+                Create story dash board
+              </md-button>
             </div>
           </div>
         </div>
@@ -74,10 +75,11 @@ export default {
           let existingStories = existingStoriesRef.val()
           firebase.database().ref('estimators/' + that.sessionDetails.sessionUUID + '/stories')
             .set({...storiesContent, ...existingStories})
+          window.location.reload()
         })
     },
     createStoryDashBoard: function () {
-      if (this.storyContent === null || this.storyContent === undefined || this.storyContent === '') {
+      if (window.util.isEmpty(this.storyContent)) {
         this.showErrorMessage = true
         return
       }
@@ -85,7 +87,7 @@ export default {
       let storiesContext = new StoriesContext(this.storyContent, this.useCommaSeparationForColumn)
 
       let storiesContent = storiesContext.getStories()
-
+      debugger
       let that = this
       if (this.purgeExistingStories) {
         firebase.database().ref('estimators/' + this.sessionDetails.sessionUUID + '/stories')
@@ -119,7 +121,7 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
     let validColumnIndices = []
     let columns = headerRow.split(getColumnDelimiter())
     for (let i = 0; i < columns.length; i++) {
-      if (columns[i] !== '') {
+      if (window.util.isNotEmpty(columns[i])) {
         validColumnIndices.push(i)
       }
       if (techColumns.includes(columns[i])) {
@@ -135,7 +137,7 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
 
   let storiesContent = {
     storyConfig: {
-      displayColumnNumbers: [0, 1, 2],
+      displayColumnNumbers: [0, 1],
       headerColumnValues: headers
     }
   }
@@ -150,13 +152,15 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
     if (!columnIndicesForTechColumns['user_estimates']) {
       return ''
     }
-    return storyEntry[columnIndicesForTechColumns['user_estimates']]
+    let value = storyEntry[columnIndicesForTechColumns['user_estimates']]
+    return window.util.isEmpty(value) ? '' : JSON.parse( value)
   }
   let getFinalEstimate = function (storyEntry) {
     if (!columnIndicesForTechColumns['final_estimate']) {
       return ''
     }
-    return storyEntry[columnIndicesForTechColumns['final_estimate']]
+    let value = storyEntry[columnIndicesForTechColumns['final_estimate']]
+    return window.util.isEmpty(value) ? '' : value
   }
   this.getStories = function () {
     values.forEach(function (row) {
@@ -165,11 +169,10 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
         if (!Object.values(columnIndicesForTechColumns).includes(index)) {
           story[index] = {
             'header': headers[index],
-            'value': column
+            'value': window.util.isEmpty(column) ? '' : column.replace(/"/g, '')
           }
         }
       })
-      debugger
       story['user_estimates'] = getUserEstimates(row)
       story['final_estimate'] = getFinalEstimate(row)
       storiesContent[uuidv4.v1()] = story
@@ -183,7 +186,7 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
   /* Modal Header */
   .modal-header {
     padding: 2px 16px;
-    background-color: #4F518C;
+    background-color: #424242;
     color: white;
   }
 
@@ -198,7 +201,7 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
     top: 10%;
     left: 10%;
     width: 80%;
-    height: 80%;
+    height: auto;
     align: center;
     overflow: auto;
     background-color: #fefefe;
@@ -236,7 +239,7 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
   }
 
   .full-area {
-    height: 85%;
+    height: 500px;
     padding: 5px;
   }
 
@@ -247,5 +250,8 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
 
   .show-right {
     float: right
+  }
+  .btn-accent{
+    background-color: #724c27;
   }
 </style>

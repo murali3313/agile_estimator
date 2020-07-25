@@ -1,5 +1,5 @@
 <template>
-  <div  >
+  <div class="base-color" >
     <h1>{{ msg }}</h1>
     <h2>Are you ready to start your dev complexity estimation session?</h2>
     <ul>
@@ -10,8 +10,6 @@
     <EstimateStarter :display="showModal" @close="showModal =false" />
 </div>
 
-
-
 </template>
 
 <script>
@@ -21,16 +19,19 @@ export default {
   data () {
     return {
       msg: 'Welcome to Agile estimator',
-      showModal:false
+      showModal: false
     }
   },
   components: {EstimateStarter},
-  methods:{
-  startANewSession: function() {
-    this.showModal=true
+  methods: {
+    startANewSession: function () {
+      this.showModal = true
+    }
+  },
+  beforeCreate: function () {
+    document.body.className = 'home'
+  }
 
-  }
-  }
 }
 </script>
 
@@ -55,4 +56,8 @@ a {
   width:300px;
   height:300px;
 }
+  .base-color{
+    background-color: #424242;
+    color: white;
+  }
 </style>

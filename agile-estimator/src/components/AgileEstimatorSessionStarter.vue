@@ -2,9 +2,9 @@
   <div v-if="display">
     <transition name="modal">
       <div class="modal-content">
-        <div class="modal-header">
-          <h3>Tell us some basic info to start your estimation!!</h3>
-          <span class="close" @click="$emit('close')">&times;</span>
+        <div class="modal-header ">
+          <h4>Tell us some basic info to start your estimation!!</h4>
+          <span class="close rowColor" @click="$emit('close')">&times;</span>
         </div>
         <div class="modal-body container-fluid">
           <div class="row">
@@ -75,7 +75,7 @@ export default {
   methods: {
 
     isMandatoryFieldMissedOut: function (name) {
-      return name == null || name === undefined || name === ''
+      return window.util.isEmpty(name)
     },
     initializeSession: function () {
       this.sessionId = uuidv4.v1()
@@ -114,13 +114,15 @@ export default {
   /* Modal Header */
   .modal-header {
     padding: 2px 16px;
-    background-color: #FF6B6B;
+    background-color: #424242;
     color: white;
   }
 
   /* Modal Body */
   .modal-body {
     padding: 25px 16px;
+    background-color: #c48b54;
+    color: black;
   }
 
   /* Modal Content */
@@ -129,7 +131,7 @@ export default {
     top: 20%;
     left: 25%;
     width: 50%;
-    height: 60%;
+    height: auto;
     align: center;
     overflow: auto;
     background-color: #fefefe;

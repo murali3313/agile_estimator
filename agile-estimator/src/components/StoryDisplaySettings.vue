@@ -13,10 +13,11 @@
               {{headerColumn}}
             </div>
           </div>
+          <div>
+            <p class="text-danger" v-if="moreColumns">Sorry cannot add more than 2 columns!!</p>
+          </div>
           <div class="row selected-headers">
-            <div>
-              <p class="text-danger" v-if="moreColumns">Sorry cannot add more than three columns!!</p>
-            </div>
+
             <div class="col-md-* included" v-for="displayColumnNumber in storyConfig.displayColumnNumbers"
                  @click="addOrRemoveColumns(displayColumnNumber)">
               {{storyConfig.headerColumnValues[displayColumnNumber]}}
@@ -54,7 +55,7 @@ export default {
           return i !== columnHeaderIndex
         })
       } else {
-        if (this.storyConfig.displayColumnNumbers.length === 3) {
+        if (this.storyConfig.displayColumnNumbers.length === 2) {
           this.moreColumns = true
           return
         }
@@ -62,7 +63,8 @@ export default {
       }
     },
     saveSettings: function () {
-      firebase.database().ref('estimators/' + SessionStorageUtil.getSessionId() + '/stories/storyConfig')
+      firebase.database().ref('estimators/' + this.$route.params.id +
+        '/stories/storyConfig')
         .set(this.storyConfig)
       this.$emit('close')
     }

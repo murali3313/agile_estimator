@@ -57,7 +57,7 @@ export default {
                 if (header === 'final_estimate') {
                   return entry[1]['final_estimate']
                 }
-                return entry[1][index].value
+                return '"' + entry[1][index].value + '"'
               }).join(that.getDelimiter())
               outputStoryContent += '\t\n'
             }
@@ -79,7 +79,7 @@ export default {
   /* Modal Header */
   .modal-header {
     padding: 2px 16px;
-    background-color: #4F518C;
+    background-color: #424242;
     color: white;
   }
 
@@ -94,7 +94,7 @@ export default {
     top: 10%;
     left: 10%;
     width: 80%;
-    height: 80%;
+    height: auto;
     align: center;
     overflow: auto;
     background-color: #fefefe;
@@ -132,7 +132,7 @@ export default {
   }
 
   .full-area {
-    height: 85%;
+    height: 500px;
     padding: 5px;
   }
 

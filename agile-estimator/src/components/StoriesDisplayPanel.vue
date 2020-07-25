@@ -1,45 +1,47 @@
 <template>
-  <div class="container-fluid">
-    <div class="row bg-primary text-light heading">
-      <h4 class=" col-md-8 ">Story list</h4>
-      <img :src="require('../assets/settings.png')" class="settings"
-           v-on:click="showStoriesDisplaySettings = true">
-      <input type="button" class="btn apply-filter"
-             v-bind:value="'Filter: '+(applyFilter === '' ? 'NA':applyFilter)" @click="$emit('clearFilter')"/>
-    </div>
-    <div class="story-list-item row">
-      <div class="col-md-11">
-        <div class="container-fluid">
-          <div class="row">
-            <div v-for="(columnNumber) in stories.storyConfig.displayColumnNumbers" class="col-md-4">
-              {{stories.storyConfig.headerColumnValues[columnNumber]}}
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-1">Size</div>
-    </div>
-    <div class="main">
-      <div class="wrapper">
-        <div v-for="(story,storyId) in stories" v-if="applyFilter=='' || story.final_estimate === applyFilter"
-             class="story-list-item row" @click="showDetail(story,storyId)">
-          <div class="col-md-11">
-            <div class="container-fluid">
-              <div class="row">
-                <div v-for="(columnNumber) in stories.storyConfig.displayColumnNumbers" class="col-md-4">
-                  {{getColumnValue(story[columnNumber])}}
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-1 estimated"
-               @click="viewEstimate()"
-               v-if="story.final_estimate !== undefined && story.final_estimate !== null && story.final_estimate !== ''">
+  <div>
+    <md-toolbar  layout="row" theme="black-green-light" class=" accent md-dense">
+      <h1 class="md-title md-toolbar-section-start md-toolbar-offset">Story list</h1>
+      <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 btn-accent"
+             v-on:click="showStoriesDisplaySettings = true">
+        Settings
+      </md-button>
+      <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 btn-accent"
+                 @click="$emit('clearFilter')">
+        {{'Filter: '+(applyFilter=='' ? 'NA':applyFilter)}}
+      </md-button>
+    </md-toolbar>
+    <md-table class="md-fixed-header">
+      <md-table-row class="table-header-accent">
+
+        <md-table-cell class="md-table-cell right-border" v-for="(columnNumber) in stories.storyConfig.displayColumnNumbers"
+                       v-bind:key="columnNumber">
+          <strong v-if="stories.storyConfig.headerColumnValues[columnNumber]">
+          {{stories.storyConfig.headerColumnValues[columnNumber].toUpperCase()}}
+          </strong>
+        </md-table-cell>
+        <md-table-cell><strong>SIZE</strong></md-table-cell>
+      </md-table-row>
+      <md-table-row v-for="(story,storyId) in stories"
+                    v-bind:key="storyId"
+                    v-bind:class="storyId === currentStoryId? 'row-selected-story':''"
+                    @click="showDetail(story,storyId)"
+                    v-if="storyId!=='storyConfig' &&( applyFilter=='' || story.final_estimate === applyFilter)">
+        <md-table-cell v-for="(columnNumber) in stories.storyConfig.displayColumnNumbers"
+                       v-bind:key="columnNumber"
+                        class="right-border">
+          {{getColumnValue(story[columnNumber])}}
+
+        </md-table-cell>
+        <md-table-cell>
+          <div v-bind:class="isFinalEstimatePresent(story) ? story.final_estimate +' estimated md-elevation-4': ''"
+               @click="viewEstimate()">
             {{story.final_estimate}}
           </div>
-        </div>
-      </div>
-    </div>
+
+        </md-table-cell>
+      </md-table-row>
+    </md-table>
     <StoriesDisplaySettings :display="showStoriesDisplaySettings"
                             @close="showStoriesDisplaySettings = false"
                             :storyConfig="stories['storyConfig']">
@@ -51,7 +53,6 @@
 <script>
 import StoriesDisplaySettings from './StoryDisplaySettings'
 
-const $ = require('jquery')
 export default {
   mounted: function () {
     let that = this
@@ -70,8 +71,11 @@ export default {
     }
   },
   components: {StoriesDisplaySettings},
-  props: ['sessionId', 'lockMoving', 'applyFilter'],
+  props: ['sessionId', 'lockMoving', 'applyFilter','currentStoryId'],
   methods: {
+    isFinalEstimatePresent: function (story) {
+      return window.util.isNotEmpty(story.final_estimate)
+    },
     getColumnValue: function (column) {
       return (column !== null && column !== undefined) ? column.value : ''
     },
@@ -90,32 +94,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-  .story-list-item {
-    width: 100%;
-  }
-
-  .story-list-item:nth-child(even) {
-    background-color: beige;
-  }
-
-  .story-list-item:nth-child(odd) {
-    background-color: burlywood;
-  }
-
-  .settings {
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-  }
-
-  .all-story {
-    height: auto;
-    overflow-y: auto;
-  }
-
-  .heading {
-    margin-right: 15px;
-  }
 
   .wrapper {
     float: left;
@@ -129,18 +107,60 @@ export default {
     height: 100%;
   }
 
-  .estimated {
-    background-color: #42b983;
+  .estimated{
     border-radius: 50%;
-    height: 30px;
-    width: 20px;
-    margin-top: 10px;
+    height: 40px;
+    width: 40px;
+    padding-top:13px;
     color: white;
     font-size: large;
     font-style: oblique;
   }
 
-  .apply-filter {
-    color: white;
+  .XS {
+    background-color: #efe9cf;
+    color:black;
+
+  }
+
+  .S {
+    background-color: #e2d6ab;
+    color:black;
+  }
+
+  .M {
+    background-color: #ddbe9b;
+    color:black;
+  }
+
+  .L {
+    background-color: #be9f44;
+    color:black;
+  }
+
+  .XL {
+    background-color: #be7f41;
+    color:black;
+  }
+
+  .XXL {
+    background-color: #986534;
+    color:black;
+
+  }
+  .accent{
+    background-color: #986534;
+  }
+  .btn-accent{
+    background-color: #724c27;
+  }
+  .table-header-accent{
+    background-color: #c48b54;
+  }
+  .right-border{
+    border-right: solid 1px gray;
+  }
+  .row-selected-story{
+    background-color: #724c27
   }
 </style>

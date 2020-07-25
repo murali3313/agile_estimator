@@ -1,54 +1,53 @@
 <template>
-  <div class="container-fluid">
-    <div class="row header-block">
-      <div class="col-md-2 textual-content"><strong>{{sessionDetails.companyName}}</strong></div>
-      <div class="col-md-2 textual-content"><strong> Facilitator Name: {{sessionDetails.facilitatorName}}</strong></div>
-      <div class="col-md-2 textual-content"><strong> User Name: {{userName}}</strong></div>
-      <div class="col-md-*">
-        <input type="button" class="btn upload-story showRight"
-               value="Request estimation"
+  <div>
+  <md-toolbar layout="row"  class=" md-dense md-theme-demo-light">
+    <h1 class="md-title logo-header">Agile Estimator</h1>
+    <div class="md-toolbar-section-start  md-toolbar-offset">{{sessionDetails.companyName}}</div>
+    <div class="md-toolbar-section-start">Facilitator Name: {{sessionDetails.facilitatorName}}</div>
+    <div class="md-toolbar-section-start">User Name: {{userName}}</div>
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+           v-if="isSessionDetailsLoaded && isFacilitator && !finalizeEstimation"
+           v-on:click="claimEstimationAttention"
+    >Request estimation</md-button>
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+           v-if="isSessionDetailsLoaded && isFacilitator && finalizeEstimation"
+           v-on:click="closeEstimationSession"
+    >Close Estimation session</md-button>
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+           v-if="isSessionDetailsLoaded"
+           v-on:click="showStoryDownloadPanel = true"
+    >Download stories</md-button>
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+           v-if="isSessionDetailsLoaded && isFacilitator"
+           v-on:click="showStoryUploadPanel = true"
+    >Upload stories</md-button>
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
                v-if="isSessionDetailsLoaded && isFacilitator && !finalizeEstimation"
-               v-on:click="claimEstimationAttention"
-        >
-        <input type="button" class="btn upload-story showRight"
-               value="Close Estimation session"
-               v-if="isSessionDetailsLoaded && isFacilitator && finalizeEstimation"
-               v-on:click="closeEstimationSession"
-        >
-      </div>
-      <div class="col-md-*">
-        <input type="button" class="btn upload-story showRight"
-               value="Download story info"
-               v-if="isSessionDetailsLoaded"
-               v-on:click="showStoryDownloadPanel = true"
-        >
-      </div>
-      <div class="col-md-*">
-
-        <input type="button" class="btn upload-story showRight"
-               value="Upload story cards"
-               v-if="isSessionDetailsLoaded && isFacilitator"
-               v-on:click="showStoryUploadPanel = true"
-        >
-
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-5 view-port">
+               v-on:click="purgeData"
+    >Purge data</md-button>
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+               v-if="isSessionDetailsLoaded && !isFacilitator && !finalizeEstimation"
+               v-on:click="claimFacilitation"
+    >Claim facilitation</md-button>
+  </md-toolbar>
+  <div class="container-fluid">
+    <div class="row" v-if="currentStoryId !=='' && currentStoryId !==undefined &&currentStoryId !==null">
+      <div class="col-md-5 view-port no-padding">
         <StoriesDisplayPanel :session-id="sessionDetails.sessionUUID"
-                             :lockMoving="claimAttentionStoryId!==''"
+                             :lockMoving="shouldLock()"
                              :applyFilter="applyFilter"
+                             :current-story-id="currentStoryId"
                              v-if="sessionDetails.sessionUUID"
                              @showEstimation="displayEstimation=true"
                              @viewDetail="viewStoryDetail(arguments)"
                              @clearFilter="applyFilter = ''"
         ></StoriesDisplayPanel>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-5 no-padding">
         <StoriesDetailPanel v-if="sessionDetails.sessionUUID" :storyId="currentStoryId">
         </StoriesDetailPanel>
       </div>
-      <div class="col-md-2 view-port">
+      <div class="col-md-2 no-padding">
         <EstimationActionPanel v-if="sessionDetails.sessionUUID"
                                :storyId="claimAttentionStoryId"
                                :displayEstimation="displayEstimation"
@@ -56,6 +55,9 @@
         </EstimationActionPanel>
       </div>
     </div>
+    <p class="no_stories" v-if="currentStoryId ==='' || currentStoryId ==undefined || currentStoryId ===null" >
+      Please upload stories to start estimation
+    </p>
     <EstimateStarter :display="showDetailCollectionPanel"
                      :sessionDetails="sessionDetails"
                      @close="showDetailCollectionPanel = false"/>
@@ -70,6 +72,8 @@
                        :isFacilitator="isFacilitator"
                        :canDiscard="isFacilitator"
                        @close="discardAndClose()"></EstimationDisplay>
+    <PurgeData :display="showPurgePanel" @close="showPurgePanel=false"></PurgeData>
+  </div>
   </div>
 </template>
 
@@ -81,7 +85,7 @@ import StoriesDetailPanel from './StoriesDetailPanel'
 import EstimationActionPanel from './EstimationActionPanel'
 import StoriesDownloader from './BulkExportStoryCards'
 import EstimationDisplay from './EstimationDisplay'
-
+import PurgeData from './PurgeData'
 export default {
   name: 'EstimationPanel',
   data () {
@@ -98,7 +102,8 @@ export default {
       isFacilitator: false,
       displayEstimation: false,
       finalizeEstimation: false,
-      applyFilter: ''
+      applyFilter: '',
+      showPurgePanel: false
     }
   },
   components: {
@@ -108,12 +113,18 @@ export default {
     StoriesDisplayPanel,
     StoriesDetailPanel,
     EstimationActionPanel,
-    EstimationDisplay
+    EstimationDisplay,
+    PurgeData
   },
   created: function () {
     this.estimatorSessionId = this.$route.params.id
-
+    debugger
     let that = this
+    firebase.database().ref('estimators/' + this.estimatorSessionId + '/facilitatorId').on('value', function (facilitatorRef) {
+      let facilitatorId = facilitatorRef.val()
+      debugger
+      that.isFacilitator = that.isFacilitatorFlag(facilitatorId)
+    })
     firebase.database().ref('estimators/' + this.estimatorSessionId).once('value')
       .then(function (sessionDetails) {
         if (SessionStorageUtil.isNewUser()) {
@@ -122,25 +133,36 @@ export default {
         that.sessionDetails = sessionDetails.val()
         that.isSessionDetailsLoaded = true
         that.userName = SessionStorageUtil.getUserName()
-        that.isFacilitator = that.sessionDetails.facilitatorId === SessionStorageUtil.getUserId()
-        let storyKeyId = Object.keys(that.sessionDetails.stories)[0]
-        that.currentStoryId = storyKeyId
+        that.isFacilitator = that.isFacilitatorFlag(that.sessionDetails.facilitatorId)
+        if (that.sessionDetails.stories) {
+          let storyKeyId = Object.keys(that.sessionDetails.stories)[0]
+          that.currentStoryId = storyKeyId
+          document.body.className = 'panel'
+        } else {
+          document.body.className = 'home'
+        }
       })
     firebase.database().ref('estimators/' + this.estimatorSessionId + '/ClaimAttentionStoryId')
       .on('value', function (storyAttentionClaimRef) {
         that.claimAttentionStoryId = storyAttentionClaimRef.val()
-        if (that.claimAttentionStoryId !== '') {
+        if (window.util.isNotEmpty(that.claimAttentionStoryId)) {
           that.currentStoryId = storyAttentionClaimRef.val()
         }
-        this.finalizeEstimation = that.claimAttentionStoryId !== ''
+        that.finalizeEstimation = window.util.isNotEmpty(that.claimAttentionStoryId)
       })
     firebase.database().ref('estimators/' + this.estimatorSessionId + '/FinalizeEstimation')
       .on('value', function (finalizeEstimationStateRef) {
-        that.displayEstimation = finalizeEstimationStateRef.val().value
-        that.currentStoryId = finalizeEstimationStateRef.val().storyId
+        let finalEstimationVal = finalizeEstimationStateRef.val()
+        if (finalEstimationVal) {
+          that.displayEstimation = finalEstimationVal.value
+          that.currentStoryId = finalEstimationVal.storyId
+        }
       })
   },
   methods: {
+    isFacilitatorFlag: function(facilitatorId){
+      return facilitatorId === SessionStorageUtil.getUserId()
+    },
     viewStoryDetail: function () {
       this.currentStoryId = arguments[0][1]
       window.scrollTo(0, 0)
@@ -163,6 +185,17 @@ export default {
       firebase.database().ref('estimators/' + this.estimatorSessionId + '/FinalizeEstimation')
         .set({'storyId': this.currentStoryId, value: false})
       this.displayEstimation = false
+    },
+    purgeData: function () {
+      this.showPurgePanel = true
+    },
+    claimFacilitation: function () {
+      firebase.database().ref('estimators/' + this.estimatorSessionId + '/facilitatorId')
+        .set(SessionStorageUtil.getUserId())
+      window.location.reload()
+    },
+    shouldLock: function () {
+      return window.util.isNotEmpty(this.claimAttentionStoryId)
     }
   }
 }
@@ -217,5 +250,25 @@ export default {
   .col-md-5 {
     padding: 0px;
     margin: 0px;
+  }
+  .no-padding {
+    padding: 0 !important;
+    margin: 0 !important;
+    padding-left: 2px !important;
+  }
+  .logo-header{
+    background-image: url('../../src/assets/agile-estimator.png');
+    background-position: center;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .no_stories{
+    padding-top:250px;
+    color:white;
+    font-size: 30px;
+  }
+
+  body{
+    background-color: white;
   }
 </style>

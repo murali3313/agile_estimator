@@ -9,43 +9,53 @@
         </div>
         <div class="modal-body container-fluid">
           <div class="row content">
-            <h4>User estimates</h4>
-            <div class="container-fluid">
-              <div class="row">
-                <div class="estimate-extra-styles" v-bind:class="'col-md-'+ 12 / Object.keys(bySize).length " v-for="(userEstimate,key) in bySize" v-bind:key="key">
-                  <div class="container-fluid">
-                    <div class="row">
-                      <div v-bind:class="key.toLowerCase()">{{key.toUpperCase()}}</div>
-                    </div>
-                    <div class="row user-names">
-                      {{userEstimate}}
+            <div class="col-md-5 right-border">
+              <h4>User estimates</h4>
+              <div class="container-fluid">
+                <div class="row user-estimate-container" v-for="(userEstimate,key) in bySize" v-bind:key="key">
+                  <div class="estimate-extra-styles">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div v-bind:class="key.toLowerCase()">{{key.toUpperCase()}}</div>
+                      </div>
+                      <div class="row user-names">
+                        {{userEstimate}}
 
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div v-if=" isFacilitator">
-          <h4 class="finalize">Choose and finalize the estimate (Only facilitator can finalize)</h4>
-          <div class="row">
 
-            <div class="estimate-extra-styles col-md-2"
-                 v-bind:class="'all-estimate-'+ key.toLowerCase() "
-                 v-for="(_,key) in allEstimates" v-bind:key="key"
-            @click="updateFinalEstimate(key)">
-              <div class="container-fluid all-estimate">
+            <div class="col-md-7">
+              <div >
+                <h4 class="finalize">Finalize the estimate</h4>
+                <p>(Only facilitator can finalize)</p>
                 <div class="row">
-                  <div v-bind:class="key.toLowerCase()+ (finalEstimate == key?' estimate-selected ':' ')">{{key.toUpperCase()}}</div>
+
+                  <div class="estimate-extra-styles col-md-2"
+                       v-bind:class="'all-estimate-'+ key.toLowerCase() "
+                       v-for="(_,key) in allEstimates" v-bind:key="key"
+                       @click="updateFinalEstimate(key)">
+                    <div class="container-fluid all-estimate">
+                      <div class="row" v-bind:class="(finalEstimate == key?key.toLowerCase()+'-background-effect':' ')">
+                        <div
+                          v-bind:class="key.toLowerCase()+ (finalEstimate == key?' estimate-selected md-elevation-24 ':' ')">
+                          {{key.toUpperCase()}}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" style="float:right;">
+                  <input type="button" class="btn finalize-action"
+                         value="Finalize Estimate" @click="finalizeEstimate()"
+                         v-if="isFinalEstimateExists()"/>
+
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row" style="float:right;">
-            <input type="button" class="btn finalize-action"
-                   value="Finalize Estimate" @click="finalizeEstimate()" v-if="finalEstimate !== '' "/>
-
-          </div>
           </div>
         </div>
       </div>
@@ -64,7 +74,7 @@ export default {
       allEstimates: {'XS': '', 'S': '', 'M': '', 'L': '', 'XL': '', 'XXL': ''}
     }
   },
-  props: ['display', 'storyId', 'canDiscard','isFacilitator'],
+  props: ['display', 'storyId', 'canDiscard', 'isFacilitator'],
   watch: {
     storyId: function () {
       this.estimatorSessionId = this.$route.params.id
@@ -72,14 +82,24 @@ export default {
       firebase.database().ref('estimators/' + this.estimatorSessionId + '/stories/' + this.storyId)
         .on('value', function (storyRef) {
           let storyObject = storyRef.val()
-          that.userEstimates = storyObject.user_estimates
-          that.finalEstimate = storyObject.final_estimate
+          if (storyObject) {
+            that.userEstimates = storyObject.user_estimates
+            that.finalEstimate = storyObject.final_estimate
+          }
           that.bySize = that.getEstimateBySize()
         })
+      firebase.database().ref('estimators/' + this.estimatorSessionId + '/FinalizeProgress').on('value', function (progressRef) {
+        let progressEstimate = progressRef.val()
+        that.finalEstimate = progressEstimate
+      })
     }
   },
   methods:
       {
+
+        isFinalEstimateExists: function () {
+          return this.isFacilitator && window.util.isNotEmpty(this.finalEstimate)
+        },
         getEstimateBySize: function () {
           let bySize = {}
           if (this.userEstimates) {
@@ -91,16 +111,23 @@ export default {
               }
             })
           }
+          debugger
           return bySize
         },
         updateFinalEstimate: function (estimate) {
+          if (!this.isFacilitator) {
+            return
+          }
           if (this.finalEstimate !== estimate) {
             this.finalEstimate = estimate
           } else {
             this.finalEstimate = ''
           }
+          firebase.database().ref('estimators/' + this.estimatorSessionId + '/FinalizeProgress')
+            .set(this.finalEstimate)
         },
         finalizeEstimate: function () {
+          debugger
           firebase.database().ref('estimators/' + this.estimatorSessionId + '/FinalizeEstimation')
             .set({'storyId': this.storyId, value: false})
           firebase.database().ref('estimators/' + this.estimatorSessionId + '/stories/' + this.storyId + '/final_estimate')
@@ -117,7 +144,7 @@ export default {
   /* Modal Header */
   .modal-header {
     padding: 2px 16px;
-    background-color: #4F518C;
+    background-color: #424242;
     color: white;
   }
 
@@ -132,16 +159,17 @@ export default {
     top: 10%;
     left: 10%;
     width: 80%;
-    height: 80%;
+    height: auto;
     align: center;
     overflow: auto;
-    background-color: #fefefe;
+    background-color: #424242;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     animation-name: animatetop;
-    animation-duration: 0.4s
+    animation-duration: 0.4s;
+    color:white;
   }
 
   /* Add Animation */
@@ -160,27 +188,34 @@ export default {
     font-size: 13px;
   }
 
-  .finalize-action,.discard-finalize {
+  .finalize-action, .discard-finalize {
     padding: 5px;
-    background-color: coral;
+    background-color: #724c27;
+    color: white;
     margin: 5px;
   }
-  .finalize-action{
-    margin-top:50px;
+  .right-border{
+    border-right: solid 1px gray;
+  }
+
+
+  .finalize-action {
+    margin-top: 50px;
   }
 
   .xs, .s, .m, .l, .xl, .xxl {
     display: inline-block;
     margin: 0 auto;
     border-radius: 50%;
-    background-color: #42b983;
     cursor: pointer;
+    color: black;
   }
 
   .xs {
     height: 2em;
     width: 2em;
     line-height: 2em;
+    background-color: #efe9cf;
 
   }
 
@@ -188,63 +223,131 @@ export default {
     height: 3em;
     width: 3em;
     line-height: 3em;
-
+    background-color: #e2d6ab;
   }
 
   .m {
     height: 4em;
     width: 4em;
     line-height: 4em;
+    background-color: #ddbe9b;
   }
 
   .l {
     height: 5em;
     width: 5em;
     line-height: 5em;
+    background-color: #be9f44;
   }
 
   .xl {
     height: 5.5em;
     width: 5.5em;
     line-height: 5.5em;
-
+    background-color: #be7f41;
   }
 
   .xxl {
     height: 6em;
     width: 6em;
     line-height: 6em;
+    background-color: #986534;
 
   }
-  .user-names{
+
+  .user-names {
     margin: 0 auto;
     display: inline-block;
+  }
+
+  .user-estimate-container {
+    margin: 0 auto;
+    display: inline;
+    padding-top: 20px;
   }
 
   .estimate-extra-styles {
     padding-left: 20px;
   }
-  .finalize{
-    padding-top:150px;
-  }
 
   .all-estimate-xs {
-    padding-top:65px;
+    padding-top: 65px;
   }
+
   .all-estimate-s {
-    padding-top:49px;
+    padding-top: 49px;
   }
+
   .all-estimate-m {
-    padding-top:33px
+    padding-top: 33px
   }
+
   .all-estimate-l {
-    padding-top:17px;
+    padding-top: 17px;
   }
+
   .all-estimate-xl {
-    padding-top:9px;
+    padding-top: 9px;
   }
-  .estimate-selected{
-    background-color: #FF6B6B;
-    color: white;
+
+  .estimate-selected {
+  }
+
+  .m-background-effect{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    height: 79px;
+    width: 79px;
+    padding-top: 12px;
+    padding-left: 2px;
+  }
+  .xs-background-effect{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    padding-top: 12px;
+    padding-left: 2px;
+    color:black;
+  }
+  .s-background-effect{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    height: 65px;
+    width: 65px;
+    padding-top: 12px;
+    padding-left: 2px;
+  }
+  .m-background-effect{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    padding-top: 12px;
+    padding-left: 2px;
+  }
+  .l-background-effect{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    height: 95px;
+    width: 95px;
+    padding-top: 12px;
+    padding-left: 2px;
+  }
+  .xl-background-effect{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    height: 99px;
+    width: 99px;
+    padding-top: 12px;
+    padding-left: 2px;
+  }
+  .xxl-background-effect{
+    background-color: antiquewhite;
+    border-radius: 50%;
+    height: 105px;
+    width: 105px;
+    padding-top: 12px;
+    padding-left: 2px;
   }
 </style>

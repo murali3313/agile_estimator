@@ -12,6 +12,7 @@ export default new Router({
       name: 'Agile Estimation Home',
       component: AgileEstimatorHome
     },
-     { path: '/estimation/:id', component: EstimationPanel }
+    { path: '/estimation/:id', component: EstimationPanel },
+    { path: '*', component: AgileEstimatorHome }
   ]
 })
