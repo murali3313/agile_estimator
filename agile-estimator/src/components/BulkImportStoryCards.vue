@@ -159,7 +159,7 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
       return ''
     }
     let value = storyEntry[columnIndicesForTechColumns['final_estimate']]
-    return window.util.isEmpty(value) ? '' : value
+    return window.util.isEmpty(value) ? '' : value.replace(/\n/g, '')
   }
   this.getStories = function () {
     values.forEach(function (row) {

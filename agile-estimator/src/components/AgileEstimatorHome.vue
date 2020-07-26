@@ -1,12 +1,15 @@
 <template>
   <div class="base-color" >
-    <h1>{{ msg }}</h1>
-    <h2>Are you ready to start your dev complexity estimation session?</h2>
-    <ul>
-      <li>
-        <img :src="require('../assets/agile-estimator.png')" class="start_estimator" v-on:click="startANewSession" />
-      </li>
-    </ul>
+    <md-toolbar layout="row"  class=" md-dense md-theme-demo-light">
+      <h1 class="md-title logo-header">Agile Estimator</h1>
+      <div class="md-toolbar-section-start  md-toolbar-offset"></div>
+      <md-button class="md-toolbar-section-end md-raised md-alignment-top-right md-elevation-24 btn-home"
+                 v-on:click="startANewSession"
+      >Start estimation</md-button>
+    </md-toolbar>
+    <img :src="require('../assets/agile-estimator.png')"
+         class="start_estimator" v-on:click="startANewSession" />
+
     <EstimateStarter :display="showModal" @close="showModal =false" />
 </div>
 
@@ -53,11 +56,21 @@ a {
 }
 .start_estimator{
   border-radius: 50%;
-  width:300px;
-  height:300px;
+  width:200px;
+  height:200px;
+  position:absolute;
+  top:45%;
+  left:45%;
 }
   .base-color{
     background-color: #424242;
     color: white;
   }
+.logo-header{
+  background-image: url('../../src/assets/agile-estimator.png');
+  background-position: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 </style>

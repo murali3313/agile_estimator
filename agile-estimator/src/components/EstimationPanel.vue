@@ -5,23 +5,23 @@
     <div class="md-toolbar-section-start  md-toolbar-offset">{{sessionDetails.companyName}}</div>
     <div class="md-toolbar-section-start">Facilitator Name: {{sessionDetails.facilitatorName}}</div>
     <div class="md-toolbar-section-start">User Name: {{userName}}</div>
-    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
            v-if="isSessionDetailsLoaded && isFacilitator && !finalizeEstimation"
            v-on:click="claimEstimationAttention"
     >Request estimation</md-button>
-    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
            v-if="isSessionDetailsLoaded && isFacilitator && finalizeEstimation"
            v-on:click="closeEstimationSession"
     >Close Estimation session</md-button>
-    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
            v-if="isSessionDetailsLoaded"
            v-on:click="showStoryDownloadPanel = true"
     >Download stories</md-button>
-    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
            v-if="isSessionDetailsLoaded && isFacilitator"
            v-on:click="showStoryUploadPanel = true"
     >Upload stories</md-button>
-    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
+    <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
                v-if="isSessionDetailsLoaded && isFacilitator && !finalizeEstimation"
                v-on:click="purgeData"
     >Purge data</md-button>
@@ -261,9 +261,12 @@ export default {
     padding-right: 5px;
   }
   .no_stories{
-    padding-top:250px;
     color:white;
     font-size: 30px;
+    background-color: black;
+    margin-top: 250px;
+    padding: 20px;
+    opacity: 0.8;
   }
 
   body{

@@ -1,0 +1,604 @@
+<svg width="960"  height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g></g>
+  <g transform="translate(460,310)">
+    <text text-anchor="middle" transform="translate(-14,-27)rotate(-73)"
+          style="font-size: 57px; font-family: Impact; fill: rgb(123, 65, 115);">time
+    </text>
+    <text text-anchor="middle" transform="translate(-81,180)rotate(7.999999999999998)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(165, 81, 148);">one
+    </text>
+    <text text-anchor="middle" transform="translate(-153,91)rotate(-32.5)"
+          style="font-size: 51px; font-family: Impact; fill: rgb(165, 81, 148);">many
+    </text>
+    <text text-anchor="middle" transform="translate(48,3)rotate(-73)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(82, 84, 163);"></text>
+    <text text-anchor="middle" transform="translate(-243,99)rotate(-32.5)"
+          style="font-size: 78px; font-family: Impact; fill: rgb(107, 110, 207);">estimation
+    </text>
+    <text text-anchor="middle" transform="translate(159,93)rotate(-52.75)"
+          style="font-size: 80px; font-family: Impact; fill: rgb(156, 158, 222);">estimates
+    </text>
+    <text text-anchor="middle" transform="translate(320,-152)rotate(-32.5)"
+          style="font-size: 62px; font-family: Impact; fill: rgb(99, 121, 57);">decision
+    </text>
+    <text text-anchor="middle" transform="translate(57,43)rotate(-32.5)"
+          style="font-size: 87px; font-family: Impact; fill: rgb(140, 162, 82);">team
+    </text>
+    <text text-anchor="middle" transform="translate(122,-65)rotate(8)"
+          style="font-size: 83px; font-family: Impact; fill: rgb(181, 207, 107);">agile
+    </text>
+    <text text-anchor="middle" transform="translate(330,78)rotate(-73)"
+          style="font-size: 65px; font-family: Impact; fill: rgb(206, 219, 156);">estimate
+    </text>
+    <text text-anchor="middle" transform="translate(-350,-6)rotate(8)"
+          style="font-size: 57px; font-family: Impact; fill: rgb(140, 109, 49);">work
+    </text>
+    <text text-anchor="middle" transform="translate(-108,-172)rotate(-32.5)"
+          style="font-size: 73px; font-family: Impact; fill: rgb(231, 186, 82);">project
+    </text>
+    <text text-anchor="middle" transform="translate(-351,47)rotate(-32.5)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(231, 203, 148);">like
+    </text>
+    <text text-anchor="middle" transform="translate(385,-97)rotate(-73)"
+          style="font-size: 51px; font-family: Impact; fill: rgb(132, 60, 57);">make
+    </text>
+    <text text-anchor="middle" transform="translate(398,15)rotate(-73)"
+          style="font-size: 51px; font-family: Impact; fill: rgb(173, 73, 74);">need
+    </text>
+    <text text-anchor="middle" transform="translate(-390,117)rotate(-32.5)"
+          style="font-size: 47px; font-family: Impact; fill: rgb(214, 97, 107);">help
+    </text>
+    <text text-anchor="middle" transform="translate(191,-146)rotate(-12.25)"
+          style="font-size: 62px; font-family: Impact; fill: rgb(231, 150, 156);">first
+    </text>
+    <text text-anchor="middle" transform="translate(39,-24)rotate(-32.5)"
+          style="font-size: 47px; font-family: Impact; fill: rgb(222, 158, 214);">also
+    </text>
+    <text text-anchor="middle" transform="translate(-88,-121)rotate(-12.25)"
+          style="font-size: 47px; font-family: Impact; fill: rgb(140, 162, 82);">get
+    </text>
+    <text text-anchor="middle" transform="translate(299,-5)rotate(-73)"
+          style="font-size: 72px; font-family: Impact; fill: rgb(181, 207, 107);">teams
+    </text>
+    <text text-anchor="middle" transform="translate(150,-26)rotate(8)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(231, 203, 148);">low
+    </text>
+    <text text-anchor="middle" transform="translate(215,124)rotate(-12.25)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(82, 84, 163);">new
+    </text>
+    <text text-anchor="middle" transform="translate(-44,-105)rotate(-32.5)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(140, 162, 82);">go
+    </text>
+    <text text-anchor="middle" transform="translate(-409,25)rotate(-52.75)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(173, 73, 74);">end
+    </text>
+    <text text-anchor="middle" transform="translate(-349,-199)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(214, 97, 107);">put
+    </text>
+    <text text-anchor="middle" transform="translate(-176,-19)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(123, 65, 115);">set
+    </text>
+    <text text-anchor="middle" transform="translate(197,-120)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(222, 158, 214);">B
+    </text>
+    <text text-anchor="middle" transform="translate(-72,56)rotate(-73)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(82, 84, 163);">take
+    </text>
+    <text text-anchor="middle" transform="translate(6,100)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(156, 158, 222);">1
+    </text>
+    <text text-anchor="middle" transform="translate(-52,70)rotate(-12.250000000000002)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(99, 121, 57);">2
+    </text>
+    <text text-anchor="middle" transform="translate(189,-48)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 162, 82);">4
+    </text>
+    <text text-anchor="middle" transform="translate(-104,-15)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(181, 207, 107);">5
+    </text>
+    <text text-anchor="middle" transform="translate(-206,-18)rotate(8)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(206, 219, 156);">6
+    </text>
+    <text text-anchor="middle" transform="translate(-11,-86)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 109, 49);">7
+    </text>
+    <text text-anchor="middle" transform="translate(95,56)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(189, 158, 57);">8
+    </text>
+    <text text-anchor="middle" transform="translate(201,79)rotate(-52.75)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(165, 81, 148);">life
+    </text>
+    <text text-anchor="middle" transform="translate(392,235)rotate(8)"
+          style="font-size: 51px; font-family: Impact; fill: rgb(189, 158, 57);">plan
+    </text>
+    <text text-anchor="middle" transform="translate(-252,14)rotate(-73)"
+          style="font-size: 57px; font-family: Impact; fill: rgb(123, 65, 115);">use
+    </text>
+    <text text-anchor="middle" transform="translate(26,-228)rotate(-73)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(57, 59, 121);">much
+    </text>
+    <text text-anchor="middle" transform="translate(182,205)rotate(7.999999999999998)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(206, 219, 156);">Scrum
+    </text>
+    <text text-anchor="middle" transform="translate(-216,-48)rotate(8)"
+          style="font-size: 99px; font-family: Impact; fill: rgb(156, 158, 222);">velocity
+    </text>
+    <text text-anchor="middle" transform="translate(108,-172)rotate(-32.5)"
+          style="font-size: 76px; font-family: Impact; fill: rgb(99, 121, 57);">iteration
+    </text>
+    <text text-anchor="middle" transform="translate(-301,-154)rotate(-12.250000000000002)"
+          style="font-size: 60px; font-family: Impact; fill: rgb(181, 207, 107);">future
+    </text>
+    <text text-anchor="middle" transform="translate(-265,-213)rotate(7.999999999999998)"
+          style="font-size: 57px; font-family: Impact; fill: rgb(206, 219, 156);">features
+    </text>
+    <text text-anchor="middle" transform="translate(279,-226)rotate(8)"
+          style="font-size: 57px; font-family: Impact; fill: rgb(156, 158, 222);">may
+    </text>
+    <text text-anchor="middle" transform="translate(29,140)rotate(-52.75)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(231, 186, 82);">days
+    </text>
+    <text text-anchor="middle" transform="translate(154,242)rotate(8)"
+          style="font-size: 47px; font-family: Impact; fill: rgb(99, 121, 57);">feature
+    </text>
+    <text text-anchor="middle" transform="translate(-399,-78)rotate(-73)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(231, 203, 148);">value
+    </text>
+    <text text-anchor="middle" transform="translate(-412,226)rotate(-73)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(206, 109, 189);">youre
+    </text>
+    <text text-anchor="middle" transform="translate(65,83)rotate(7.999999999999998)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(214, 97, 107);">20
+    </text>
+    <text text-anchor="middle" transform="translate(186,163)rotate(7.999999999999998)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(123, 65, 115);">small
+    </text>
+    <text text-anchor="middle" transform="translate(129,36)rotate(-52.75)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(165, 81, 148);">etc
+    </text>
+    <text text-anchor="middle" transform="translate(-327,73)rotate(-32.5)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(222, 158, 214);">unit
+    </text>
+    <text text-anchor="middle" transform="translate(-325,196)rotate(-12.250000000000002)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(222, 158, 214);">start
+    </text>
+    <text text-anchor="middle" transform="translate(177,269)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(57, 59, 121);">simply
+    </text>
+    <text text-anchor="middle" transform="translate(252,155)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(82, 84, 163);">add
+    </text>
+    <text text-anchor="middle" transform="translate(-39,-175)rotate(-52.75)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(107, 110, 207);">user
+    </text>
+    <text text-anchor="middle" transform="translate(274,-183)rotate(-52.75)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(99, 121, 57);">items
+    </text>
+    <text text-anchor="middle" transform="translate(-222,0)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(156, 158, 222);">see
+    </text>
+    <text text-anchor="middle" transform="translate(54,-210)rotate(-52.75)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(140, 162, 82);">FAQs
+    </text>
+    <text text-anchor="middle" transform="translate(224,-206)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(140, 109, 49);">point
+    </text>
+    <text text-anchor="middle" transform="translate(-430,78)rotate(-12.250000000000002)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(181, 207, 107);">within
+    </text>
+    <text text-anchor="middle" transform="translate(-92,-263)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(206, 219, 156);">early
+    </text>
+    <text text-anchor="middle" transform="translate(106,-139)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(107, 110, 207);">tend
+    </text>
+    <text text-anchor="middle" transform="translate(-14,267)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(189, 158, 57);">chart
+    </text>
+    <text text-anchor="middle" transform="translate(-232,122)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(231, 186, 82);">sum
+    </text>
+    <text text-anchor="middle" transform="translate(236,-69)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(214, 97, 107);">look
+    </text>
+    <text text-anchor="middle" transform="translate(297,272)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(214, 97, 107);">units
+    </text>
+    <text text-anchor="middle" transform="translate(325,-100)rotate(7.999999999999998)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(123, 65, 115);">two
+    </text>
+    <text text-anchor="middle" transform="translate(-208,-183)rotate(7.999999999999998)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(57, 59, 121);">key
+    </text>
+    <text text-anchor="middle" transform="translate(164,-274)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(181, 207, 107);">thus
+    </text>
+    <text text-anchor="middle" transform="translate(82,-49)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(222, 158, 214);">3
+    </text>
+    <text text-anchor="middle" transform="translate(-83,-102)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(57, 59, 121);">60
+    </text>
+    <text text-anchor="middle" transform="translate(93,-253)rotate(-12.250000000000002)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(123, 65, 115);">used
+    </text>
+    <text text-anchor="middle" transform="translate(410,151)rotate(-12.25)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(165, 81, 148);">dont
+    </text>
+    <text text-anchor="middle" transform="translate(429,-169)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(140, 162, 82);">really
+    </text>
+    <text text-anchor="middle" transform="translate(-39,-277)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(107, 110, 207);">using
+    </text>
+    <text text-anchor="middle" transform="translate(431,107)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(123, 65, 115);">Due
+    </text>
+    <text text-anchor="middle" transform="translate(-145,-122)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(107, 110, 207);">way
+    </text>
+    <text text-anchor="middle" transform="translate(-154,162)rotate(-12.25)"
+          style="font-size: 67px; font-family: Impact; fill: rgb(140, 162, 82);">iterations
+    </text>
+    <text text-anchor="middle" transform="translate(413,-93)rotate(-73)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(231, 186, 82);">proven
+    </text>
+    <text text-anchor="middle" transform="translate(-270,-139)rotate(-12.250000000000002)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(231, 150, 156);">week
+    </text>
+    <text text-anchor="middle" transform="translate(-430,176)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(140, 109, 49);">now
+    </text>
+    <text text-anchor="middle" transform="translate(-83,220)rotate(8)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(222, 158, 214);">planning
+    </text>
+    <text text-anchor="middle" transform="translate(354,165)rotate(-73)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(140, 109, 49);">typically
+    </text>
+    <text text-anchor="middle" transform="translate(-380,-212)rotate(-73)"
+          style="font-size: 54px; font-family: Impact; fill: rgb(189, 158, 57);">couple
+    </text>
+    <text text-anchor="middle" transform="translate(-272,231)rotate(-12.25)"
+          style="font-size: 47px; font-family: Impact; fill: rgb(57, 59, 121);">included
+    </text>
+    <text text-anchor="middle" transform="translate(-186,-248)rotate(8)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(132, 60, 57);">quickly
+    </text>
+    <text text-anchor="middle" transform="translate(342,-260)rotate(8)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(123, 65, 115);">months
+    </text>
+    <text text-anchor="middle" transform="translate(-104,249)rotate(8)"
+          style="font-size: 41px; font-family: Impact; fill: rgb(123, 65, 115);">answer
+    </text>
+    <text text-anchor="middle" transform="translate(67,258)rotate(8)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(214, 97, 107);">means
+    </text>
+    <text text-anchor="middle" transform="translate(-431,-102)rotate(-73)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(173, 73, 74);">best
+    </text>
+    <text text-anchor="middle" transform="translate(275,232)rotate(-52.75)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(123, 65, 115);">done
+    </text>
+    <text text-anchor="middle" transform="translate(-217,252)rotate(-12.25)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(107, 110, 207);">useful
+    </text>
+    <text text-anchor="middle" transform="translate(412,184)rotate(-12.25)"
+          style="font-size: 35px; font-family: Impact; fill: rgb(107, 110, 207);">find
+    </text>
+    <text text-anchor="middle" transform="translate(420,40)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(214, 97, 107);">requirements
+    </text>
+    <text text-anchor="middle" transform="translate(-304,-270)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(165, 81, 148);">accuracy
+    </text>
+    <text text-anchor="middle" transform="translate(379,266)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(181, 207, 107);">concept
+    </text>
+    <text text-anchor="middle" transform="translate(243,-276)rotate(-12.25)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(206, 109, 189);">along
+    </text>
+    <text text-anchor="middle" transform="translate(-416,-258)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(140, 109, 49);">status
+    </text>
+    <text text-anchor="middle" transform="translate(29,-80)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(231, 203, 148);">level
+    </text>
+    <text text-anchor="middle" transform="translate(430,-70)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(132, 60, 57);">next
+    </text>
+    <text text-anchor="middle" transform="translate(-151,266)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(206, 109, 189);">andor
+    </text>
+    <text text-anchor="middle" transform="translate(-303,271)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(206, 219, 156);">points
+    </text>
+    <text text-anchor="middle" transform="translate(-387,259)rotate(-32.5)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(206, 109, 189);">even
+    </text>
+    <text text-anchor="middle" transform="translate(-429,-190)rotate(-73)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(82, 84, 163);">hours
+    </text>
+    <text text-anchor="middle" transform="translate(-431,1)rotate(-52.75)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(140, 109, 49);">hand
+    </text>
+    <text text-anchor="middle" transform="translate(432,-278)rotate(8)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(165, 81, 148);">order
+    </text>
+    <text text-anchor="middle" transform="translate(-381,220)rotate(-52.75)"
+          style="font-size: 25px; font-family: Impact; fill: rgb(206, 219, 156);">seen
+    </text>
+    <text text-anchor="middle" transform="translate(184,-198)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(222, 158, 214);">JODI
+    </text>
+    <text text-anchor="middle" transform="translate(-27,-95)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(57, 59, 121);">LEBOW
+    </text>
+    <text text-anchor="middle" transform="translate(-54,87)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(82, 84, 163);">extremely
+    </text>
+    <text text-anchor="middle" transform="translate(-117,96)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(107, 110, 207);">powerful
+    </text>
+    <text text-anchor="middle" transform="translate(27,171)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(156, 158, 222);">method
+    </text>
+    <text text-anchor="middle" transform="translate(-437,93)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(99, 121, 57);">accurately
+    </text>
+    <text text-anchor="middle" transform="translate(9,-90)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 162, 82);">rate
+    </text>
+    <text text-anchor="middle" transform="translate(-157,-286)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(181, 207, 107);">consistently
+    </text>
+    <text text-anchor="middle" transform="translate(-97,23)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 219, 156);">calculate
+    </text>
+    <text text-anchor="middle" transform="translate(-259,-36)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 109, 49);">successfully
+    </text>
+    <text text-anchor="middle" transform="translate(-234,-123)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(189, 158, 57);">prior
+    </text>
+    <text text-anchor="middle" transform="translate(234,23)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 186, 82);">completing
+    </text>
+    <text text-anchor="middle" transform="translate(-208,263)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 203, 148);">historical
+    </text>
+    <text text-anchor="middle" transform="translate(-382,-75)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(132, 60, 57);">measures
+    </text>
+    <text text-anchor="middle" transform="translate(-15,113)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(173, 73, 74);">short
+    </text>
+    <text text-anchor="middle" transform="translate(-84,-165)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(214, 97, 107);">stabilizes
+    </text>
+    <text text-anchor="middle" transform="translate(81,46)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 150, 156);">basis
+    </text>
+    <text text-anchor="middle" transform="translate(-445,149)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(123, 65, 115);">improving
+    </text>
+    <text text-anchor="middle" transform="translate(435,192)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(165, 81, 148);">reliability
+    </text>
+    <text text-anchor="middle" transform="translate(-313,-201)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 109, 189);">nearterm
+    </text>
+    <text text-anchor="middle" transform="translate(362,-233)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(222, 158, 214);">longerterm
+    </text>
+    <text text-anchor="middle" transform="translate(335,-74)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(57, 59, 121);">delivery
+    </text>
+    <text text-anchor="middle" transform="translate(142,-15)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(82, 84, 163);">cycles
+    </text>
+    <text text-anchor="middle" transform="translate(-41,-153)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(107, 110, 207);">emerges
+    </text>
+    <text text-anchor="middle" transform="translate(432,-250)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(156, 158, 222);">validated
+    </text>
+    <text text-anchor="middle" transform="translate(35,72)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(99, 121, 57);">relied
+    </text>
+    <text text-anchor="middle" transform="translate(-51,152)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 162, 82);">improve
+    </text>
+    <text text-anchor="middle" transform="translate(-1,8)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(181, 207, 107);">Yes
+    </text>
+    <text text-anchor="middle" transform="translate(-214,-171)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 219, 156);">try
+    </text>
+    <text text-anchor="middle" transform="translate(-74,270)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 109, 49);">overcomplicate
+    </text>
+    <text text-anchor="middle" transform="translate(85,-237)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(189, 158, 57);">straight
+    </text>
+    <text text-anchor="middle" transform="translate(427,72)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 186, 82);">forward
+    </text>
+    <text text-anchor="middle" transform="translate(-147,-220)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 203, 148);">great
+    </text>
+    <text text-anchor="middle" transform="translate(157,127)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(132, 60, 57);">deal
+    </text>
+    <text text-anchor="middle" transform="translate(-122,169)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(173, 73, 74);">lies
+    </text>
+    <text text-anchor="middle" transform="translate(440,-39)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(214, 97, 107);">managers
+    </text>
+    <text text-anchor="middle" transform="translate(-446,-19)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 150, 156);">methods
+    </text>
+    <text text-anchor="middle" transform="translate(442,275)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(123, 65, 115);">overanalyze
+    </text>
+    <text text-anchor="middle" transform="translate(213,46)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(165, 81, 148);">heap
+    </text>
+    <text text-anchor="middle" transform="translate(-359,270)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 109, 189);">complexity
+    </text>
+    <text text-anchor="middle" transform="translate(-300,23)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(222, 158, 214);">around
+    </text>
+    <text text-anchor="middle" transform="translate(119,-47)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(57, 59, 121);">ah
+    </text>
+    <text text-anchor="middle" transform="translate(-78,2)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(82, 84, 163);">ha
+    </text>
+    <text text-anchor="middle" transform="translate(-334,-48)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(107, 110, 207);">moment
+    </text>
+    <text text-anchor="middle" transform="translate(-442,-271)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(156, 158, 222);">shedding
+    </text>
+    <text text-anchor="middle" transform="translate(446,-119)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(99, 121, 57);">baggage
+    </text>
+    <text text-anchor="middle" transform="translate(-102,-238)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 162, 82);">theyve
+    </text>
+    <text text-anchor="middle" transform="translate(75,-282)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(181, 207, 107);">associated
+    </text>
+    <text text-anchor="middle" transform="translate(-385,271)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 219, 156);">appreciating
+    </text>
+    <text text-anchor="middle" transform="translate(430,-265)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 109, 49);">intrinsic
+    </text>
+    <text text-anchor="middle" transform="translate(-295,65)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(189, 158, 57);">provide
+    </text>
+    <text text-anchor="middle" transform="translate(441,17)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 186, 82);">insightvisibility
+    </text>
+    <text text-anchor="middle" transform="translate(-15,188)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 203, 148);">shows
+    </text>
+    <text text-anchor="middle" transform="translate(30,271)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(132, 60, 57);">unless
+    </text>
+    <text text-anchor="middle" transform="translate(-322,-138)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(173, 73, 74);">makeup
+    </text>
+    <text text-anchor="middle" transform="translate(127,-136)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(214, 97, 107);">varies
+    </text>
+    <text text-anchor="middle" transform="translate(444,-152)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 150, 156);">purposes
+    </text>
+    <text text-anchor="middle" transform="translate(104,68)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(123, 65, 115);">accept
+    </text>
+    <text text-anchor="middle" transform="translate(227,272)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(165, 81, 148);">priorities
+    </text>
+    <text text-anchor="middle" transform="translate(-13,98)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 109, 189);">goals
+    </text>
+    <text text-anchor="middle" transform="translate(444,-97)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(222, 158, 214);">confidence
+    </text>
+    <text text-anchor="middle" transform="translate(139,145)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(57, 59, 121);">far
+    </text>
+    <text text-anchor="middle" transform="translate(63,272)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(82, 84, 163);">releases
+    </text>
+    <text text-anchor="middle" transform="translate(249,276)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(107, 110, 207);">typical
+    </text>
+    <text text-anchor="middle" transform="translate(446,-62)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(156, 158, 222);">might
+    </text>
+    <text text-anchor="middle" transform="translate(-372,5)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(99, 121, 57);">image
+    </text>
+    <text text-anchor="middle" transform="translate(-58,-189)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(156, 158, 222);">just
+    </text>
+    <text text-anchor="middle" transform="translate(366,179)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 162, 82);">dive
+    </text>
+    <text text-anchor="middle" transform="translate(-440,-51)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(181, 207, 107);">select
+    </text>
+    <text text-anchor="middle" transform="translate(-231,-144)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(173, 73, 74);">fast
+    </text>
+    <text text-anchor="middle" transform="translate(443,254)rotate(-52.75)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 219, 156);">adjusted
+    </text>
+    <text text-anchor="middle" transform="translate(119,275)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 109, 49);">granular
+    </text>
+    <text text-anchor="middle" transform="translate(-218,-36)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(189, 158, 57);">eg
+    </text>
+    <text text-anchor="middle" transform="translate(447,49)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 186, 82);">highlevel
+    </text>
+    <text text-anchor="middle" transform="translate(-447,-206)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 203, 148);">simplifies
+    </text>
+    <text text-anchor="middle" transform="translate(369,281)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(132, 60, 57);">reporting
+    </text>
+    <text text-anchor="middle" transform="translate(-447,231)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(173, 73, 74);">calculated
+    </text>
+    <text text-anchor="middle" transform="translate(137,7)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(214, 97, 107);">ie
+    </text>
+    <text text-anchor="middle" transform="translate(-202,277)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(231, 150, 156);">accepted
+    </text>
+    <text text-anchor="middle" transform="translate(-269,128)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(99, 121, 57);">per
+    </text>
+    <text text-anchor="middle" transform="translate(337,-127)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(189, 158, 57);">story
+    </text>
+    <text text-anchor="middle" transform="translate(-162,279)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(123, 65, 115);">delivers
+    </text>
+    <text text-anchor="middle" transform="translate(143,281)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(165, 81, 148);">general
+    </text>
+    <text text-anchor="middle" transform="translate(-254,277)rotate(-32.5)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(206, 109, 189);">onethird
+    </text>
+    <text text-anchor="middle" transform="translate(-452,129)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(222, 158, 214);">rework
+    </text>
+    <text text-anchor="middle" transform="translate(71,284)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(57, 59, 121);">research
+    </text>
+    <text text-anchor="middle" transform="translate(39,-66)rotate(-73)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(82, 84, 163);">six
+    </text>
+    <text text-anchor="middle" transform="translate(-199,-6)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(107, 110, 207);">total
+    </text>
+    <text text-anchor="middle" transform="translate(-40,163)rotate(-12.25)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(156, 158, 222);">x10
+    </text>
+    <text text-anchor="middle" transform="translate(-13,281)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(99, 121, 57);">situation
+    </text>
+    <text text-anchor="middle" transform="translate(-101,-252)rotate(8)"
+          style="font-size: 10px; font-family: Impact; fill: rgb(140, 162, 82);">actual
+    </text>
+  </g>
+</svg>

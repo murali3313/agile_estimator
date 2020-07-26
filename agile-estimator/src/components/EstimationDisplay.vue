@@ -132,6 +132,8 @@ export default {
             .set(this.finalEstimate)
           firebase.database().ref('estimators/' + this.estimatorSessionId + '/ref_stories/' + this.storyId)
             .set(this.finalEstimate)
+          firebase.database().ref('estimators/' + this.estimatorSessionId + '/FinalizeProgress')
+            .set('')
           this.$emit('close')
         }
       }

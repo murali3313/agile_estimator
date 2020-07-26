@@ -96,7 +96,7 @@ export default {
     width: 100px;
     padding: 2px;
     border-radius: 1%;
-    background-color: #458aff;
+    background-color: #724c27;
     cursor: pointer;
     color: white;
     min-height: 30px;

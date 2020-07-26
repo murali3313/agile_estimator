@@ -34,7 +34,9 @@
 
           <div class="row estimate_action">
             <div class="col-md-12">
-              <input type="submit" value="Start estimation" class="btn btn-primary" @click="startSession()"/>
+              <md-button class="md-toolbar-section-center md-raised md-alignment-top-right md-elevation-24 btn-home"
+                         v-on:click="startSession()"
+              >Start estimation</md-button>
             </div>
           </div>
         </div>
