@@ -125,9 +125,6 @@ export default {
     })
     firebase.database().ref('estimators/' + this.estimatorSessionId).once('value')
       .then(function (sessionDetails) {
-        if (SessionStorageUtil.isNewUser()) {
-          that.showDetailCollectionPanel = true
-        }
         that.sessionDetails = sessionDetails.val()
         that.isSessionDetailsLoaded = true
         that.userName = SessionStorageUtil.getUserName()
@@ -139,6 +136,9 @@ export default {
         } else {
           document.body.className = 'home'
         }
+      })
+      .catch(function () {
+        that.showDetailCollectionPanel = true
       })
     firebase.database().ref('estimators/' + this.estimatorSessionId + '/ClaimAttentionStoryId')
       .on('value', function (storyAttentionClaimRef) {
@@ -158,7 +158,7 @@ export default {
       })
   },
   methods: {
-    isFacilitatorFlag: function(facilitatorId){
+    isFacilitatorFlag: function (facilitatorId) {
       return facilitatorId === SessionStorageUtil.getUserId()
     },
     viewStoryDetail: function () {

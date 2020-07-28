@@ -7,38 +7,7 @@
           <span class="close rowColor" @click="$emit('close')">&times;</span>
         </div>
         <div class="modal-body container-fluid">
-          <div class="row">
-            <h5 class="col-md-6 first-column">Your company name</h5>
-            <div class="col-md-6">
-              <input type="text" v-model="companyName" style="width:100%" />
-              <p class="text-danger" v-if="companyNameMandatory">Please provide your company or product name</p>
-            </div>
-          </div>
-          <div class="row">
-            <h5 class="col-md-6 first-column">Whats' your Name?</h5>
-            <div class="col-md-6">
-              <input type="text" v-model="userName" style="width:100%"/>
-              <p class="text-danger" v-if="userNameMandatory">Please provide your name</p>
-            </div>
-          </div>
-          <div class="row">
-            <h5 class="col-md-6 first-column">What role you play in your team?</h5>
-            <div class="col-md-6">
-              <select v-model="role" style="width:100%">
-                <option v-for="roleItem in roles" :key="roleItem.id"
-                        :value="roleItem">{{roleItem.name}}
-                </option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row estimate_action">
-            <div class="col-md-12">
-              <md-button class="md-toolbar-section-center md-raised md-alignment-top-right md-elevation-24 btn-home"
-                         v-on:click="startSession()"
-              >Start estimation</md-button>
-            </div>
-          </div>
+          <div id="firebaseui-auth-container"></div>
         </div>
       </div>
     </transition>
@@ -72,6 +41,28 @@ export default {
   props: ['display',
     'sessionDetails'],
   updated: function () {
+    var uiConfig = {
+      signInSuccessUrl: window.location,
+      signInOptions: [
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
+      ]
+    }
+
+    // Initialize the FirebaseUI Widget using Firebase.
+    var ui = new firebaseui.auth.AuthUI(firebase.auth())
+    // The start method will wait until the DOM is loaded.
+    ui.start('#firebaseui-auth-container', uiConfig)
+    let that = this
+    firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+        that.userName = user.displayName
+        that.userId = user.uid
+        that.initializeSession()
+      } else {
+        // User is signed out.
+        // ...
+      }
+    })
     this.companyName = this.sessionDetails !== null ? this.sessionDetails.companyName : ''
   },
   methods: {
@@ -123,7 +114,7 @@ export default {
   /* Modal Body */
   .modal-body {
     padding: 25px 16px;
-    background-color: #c48b54;
+    background-color:  #fefefe;
     color: black;
   }
 

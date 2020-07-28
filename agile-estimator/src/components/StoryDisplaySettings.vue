@@ -88,7 +88,7 @@ export default {
   /* Modal Content */
   .modal-content {
     position: absolute;
-    top: 30px;
+    top: 12%;
     left: 10%;
     width: 80%;
     height: 500px;

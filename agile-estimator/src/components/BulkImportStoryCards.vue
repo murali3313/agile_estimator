@@ -197,7 +197,7 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
   /* Modal Content */
   .modal-content {
     position: absolute;
-    top: 10%;
+    top: 12%;
     left: 10%;
     width: 80%;
     height: auto;
