@@ -3,7 +3,7 @@
     <transition name="modal">
       <div class="modal-content">
         <div class="modal-header ">
-          <h4>Tell us some basic info to start your estimation!!</h4>
+          <h4>Please sign in to start!!</h4>
           <span class="close rowColor" @click="$emit('close')">&times;</span>
         </div>
         <div class="modal-body container-fluid">
@@ -35,28 +35,32 @@ export default {
         {id: 5, name: 'User experience designer'},
         {id: 6, name: 'User interface developer'},
         {id: 7, name: 'Others'}
-      ]
+      ],
+      authUI: null
     }
   },
   props: ['display',
     'sessionDetails'],
+  created: function () {
+    this.initAuthUI()
+  },
   updated: function () {
-    var uiConfig = {
+    let uiConfig = {
       signInSuccessUrl: window.location,
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
       ]
     }
-
-    // Initialize the FirebaseUI Widget using Firebase.
-    var ui = new firebaseui.auth.AuthUI(firebase.auth())
-    // The start method will wait until the DOM is loaded.
-    ui.start('#firebaseui-auth-container', uiConfig)
+    if (!this.authUI) {
+      this.initAuthUI()
+    }
+    this.authUI.start('#firebaseui-auth-container', uiConfig)
     let that = this
     firebase.auth().onAuthStateChanged(function (user) {
       if (user) {
         that.userName = user.displayName
         that.userId = user.uid
+        that.authUI.delete()
         that.initializeSession()
       } else {
         // User is signed out.
@@ -66,7 +70,10 @@ export default {
     this.companyName = this.sessionDetails !== null ? this.sessionDetails.companyName : ''
   },
   methods: {
-
+    initAuthUI: function () {
+      debugger
+      this.authUI = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth())
+    },
     isMandatoryFieldMissedOut: function (name) {
       return window.util.isEmpty(name)
     },
@@ -114,7 +121,7 @@ export default {
   /* Modal Body */
   .modal-body {
     padding: 25px 16px;
-    background-color:  #fefefe;
+    background-color:  #424242;
     color: black;
   }
 

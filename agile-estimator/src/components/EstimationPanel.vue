@@ -6,15 +6,15 @@
     <div class="md-toolbar-section-start">Facilitator Name: {{sessionDetails.facilitatorName}}</div>
     <div class="md-toolbar-section-start">User Name: {{userName}}</div>
     <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
-           v-if="isSessionDetailsLoaded && isFacilitator && !finalizeEstimation"
+           v-if="isSessionDetailsLoaded && isFacilitator && !finalizeEstimation && isStoryLoaded()"
            v-on:click="claimEstimationAttention"
     >Request estimation</md-button>
     <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
-           v-if="isSessionDetailsLoaded && isFacilitator && finalizeEstimation"
+           v-if="isSessionDetailsLoaded && isFacilitator && finalizeEstimation && isStoryLoaded()"
            v-on:click="closeEstimationSession"
     >Close Estimation session</md-button>
     <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
-           v-if="isSessionDetailsLoaded"
+           v-if="isSessionDetailsLoaded && isStoryLoaded()"
            v-on:click="showStoryDownloadPanel = true"
     >Download stories</md-button>
     <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1 md-raised"
@@ -26,7 +26,7 @@
                v-on:click="purgeData"
     >Purge data</md-button>
     <md-button class="md-toolbar-section-end md-alignment-top-center md-elevation-1"
-               v-if="isSessionDetailsLoaded && !isFacilitator && !finalizeEstimation"
+               v-if="isSessionDetailsLoaded && !isFacilitator && !finalizeEstimation && isStoryLoaded()"
                v-on:click="claimFacilitation"
     >Claim facilitation</md-button>
   </md-toolbar>
@@ -158,6 +158,9 @@ export default {
       })
   },
   methods: {
+    isStoryLoaded: function () {
+      return window.util.isNotEmpty(this.currentStoryId)
+    },
     isFacilitatorFlag: function (facilitatorId) {
       return facilitatorId === SessionStorageUtil.getUserId()
     },
