@@ -52,10 +52,10 @@ export default {
             if (entry[0] !== 'storyConfig') {
               outputStoryContent += stroyConfig.headerColumnValues.map(function (header, index) {
                 if (header === 'user_estimates') {
-                  return JSON.stringify(entry[1]['user_estimates'])
+                  return '"' + JSON.stringify(entry[1]['user_estimates']).replace(/"/g, '*') + '"'
                 }
                 if (header === 'final_estimate') {
-                  return entry[1]['final_estimate']
+                  return '"' + entry[1]['final_estimate'] + '"'
                 }
                 return '"' + entry[1][index].value + '"'
               }).join(that.getDelimiter())

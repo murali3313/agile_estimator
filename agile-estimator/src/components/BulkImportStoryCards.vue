@@ -107,14 +107,41 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
   let getColumnDelimiter = function () {
     return isCommaSeparated ? ',' : '\t'
   }
-  let getRowDelimiter = function () {
-    return isCommaSeparated ? '\n' : '\t\n'
-  }
+
   let getHeaderRowDelimiter = function () {
     return '\n'
   }
   let headerRow = storyContent.split(getHeaderRowDelimiter())[0]
-  let storyOnlySplit = storyContent.split(getHeaderRowDelimiter()).slice(1).join('\n').split(getRowDelimiter())
+  let getStorySplit = function (storyContent, headerValues) {
+    let onlyStoryContent = storyContent.split(getHeaderRowDelimiter()).slice(1).join(getHeaderRowDelimiter())
+    let stories = []
+    let allColumns = onlyStoryContent.split(getColumnDelimiter())
+    let allTrueColumns = []
+    allColumns.forEach(function (column) {
+      if (column.startsWith('"')) {
+        allTrueColumns.push(column)
+      } else {
+        let existenceOfEnterKeyInSameColumn = column.split('\n')
+        if (existenceOfEnterKeyInSameColumn.length === 2) {
+          allTrueColumns.push(existenceOfEnterKeyInSameColumn[0])
+          allTrueColumns.push(existenceOfEnterKeyInSameColumn[1])
+        } else {
+          allTrueColumns.push(column)
+        }
+      }
+    })
+
+    let storyRowColumns = []
+    allTrueColumns.forEach(function (trueColumn, index) {
+      storyRowColumns.push(trueColumn)
+      if ((index + 1) % headers.length === 0) {
+        stories.push(storyRowColumns.join(getColumnDelimiter()))
+        storyRowColumns = []
+      }
+    })
+    return stories
+  }
+
   let columnIndicesForTechColumns = {}
   let validColumnIndices = (function () {
     let validColumnIndices = []
@@ -129,17 +156,29 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
     }
     return validColumnIndices
   }())
+
   let headers = (function () {
     let columns = headerRow.split(getColumnDelimiter())
     return validColumnIndices.map(function (validIndex) { return columns[validIndex] })
   }())
 
+  let getOnlyNonTechnicalHeaders = function (headers) {
+    let nonTechColumns = []
+    headers.forEach(function (column) {
+      if (column !== 'user_estimates' && column !== 'final_estimate') {
+        nonTechColumns.push(column)
+      }
+    })
+    return nonTechColumns
+  }
+
   let storiesContent = {
     storyConfig: {
       displayColumnNumbers: [0, 1],
-      headerColumnValues: headers
+      headerColumnValues: getOnlyNonTechnicalHeaders(headers)
     }
   }
+  let storyOnlySplit = getStorySplit(storyContent)
   let values = (function () {
     return storyOnlySplit.map(function (story) {
       let columns = story.split(getColumnDelimiter())
@@ -147,12 +186,19 @@ let StoriesContext = function (storyContent, isCommaSeparated) {
     })
   }())
 
+  let parsedJsonEstimates = function (value) {
+    try {
+      return JSON.parse(value.replace(/\*/g, '"'))
+    } catch (e) {
+      return ''
+    }
+  }
   let getUserEstimates = function (storyEntry) {
     if (!columnIndicesForTechColumns['user_estimates']) {
       return ''
     }
     let value = storyEntry[columnIndicesForTechColumns['user_estimates']]
-    return window.util.isEmpty(value) ? '' : JSON.parse( value)
+    return window.util.isEmpty(value) ? '' : parsedJsonEstimates(value)
   }
   let getFinalEstimate = function (storyEntry) {
     if (!columnIndicesForTechColumns['final_estimate']) {
